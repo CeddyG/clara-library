@@ -1,0 +1,27 @@
+{
+    "name": "ceddyg/clara-library",
+    "description": "Library file manager for Clara.",
+    "keywords": ["laravel", "clara", "library", "file"],
+    "authors": [
+        {
+            "name": "CeddyG"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "CeddyG\\ClaraLibrary\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CeddyG\\ClaraLibrary\\LibraryServiceProvider"
+            ]
+        }
+    }
+}
