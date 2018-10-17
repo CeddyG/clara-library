@@ -53,6 +53,7 @@
                         @endif
 
                         {!! BootForm::text(__('clara-library::library.title_library'), 'title_library') !!}
+                        {!! BootForm::text(__('clara-library::library.slug_library'), 'slug_library') !!}
                         {!! BootForm::file(__('clara-library::library.file'), 'file') !!}
                         {!! BootForm::textarea(__('clara-library::library.description_library'), 'description_library')->addClass('ckeditor') !!}
                         

@@ -21,7 +21,10 @@
         "laravel": {
             "providers": [
                 "CeddyG\\ClaraLibrary\\LibraryServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Library": "CeddyG\\ClaraLibrary\\Facades\\Library"
+            }
         }
     }
 }

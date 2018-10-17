@@ -57,7 +57,7 @@
                 columns: [
                     { 'data': 'id_library' },
                     { 'data': 'title_library' },
-					{ 'data': 'url_library' },
+					{ 'data': 'full_url' },
                     {
                         "data": "id_library",
                         "render": function ( data, type, row, meta ) {

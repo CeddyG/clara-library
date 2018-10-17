@@ -14,6 +14,7 @@ return [
     'library'               => 'Library',
     'fk_library_category'   => 'Library category',
     'title_library'         => 'Title library',
+    'slug_library'          => 'Slug library',
     'url_library'           => 'Url library',
     'file'                  => 'File',
     'description_library'   => 'Description library',

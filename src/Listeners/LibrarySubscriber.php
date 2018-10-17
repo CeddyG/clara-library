@@ -2,14 +2,19 @@
 
 namespace CeddyG\ClaraLibrary\Listeners;
 
+use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
+
 class LibrarySubscriber
 {
     public function upload($oEvent)
     {
         if (isset($oEvent->aInputs['file']))
         {
+            $oCategoryRepository = new LibraryCategoryRepository();
+            $oCategory = $oCategoryRepository->find($oEvent->aInputs['fk_library_category'], ['slug_library_category']);
+            
             $oEvent->aInputs['file']->storeAs(
-                $oEvent->aInputs['url_library'], 
+                'public/'.config('clara.library.folder').'/'.$oCategory->slug_library_category, 
                 $oEvent->aInputs['file']->getClientOriginalName()
             );
         }

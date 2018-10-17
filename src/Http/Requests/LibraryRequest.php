@@ -27,7 +27,9 @@ class LibraryRequest extends FormRequest
             $oCategoryRepository = new LibraryCategoryRepository();
             $oCategory = $oCategoryRepository->find($aAttribute['fk_library_category'], ['slug_library_category']);
             
-            $aAttribute['url_library'] = 'public/'.config('clara.library.folder').'/'.$oCategory->slug_library_category;
+            $sName = $this->file('file')->getClientOriginalName();
+            
+            $aAttribute['url_library'] = 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.$sName;
         }
         
         return $aAttribute;
@@ -48,6 +50,7 @@ class LibraryRequest extends FormRequest
                     'id_library'            => 'numeric',
                     'fk_library_category'   => 'numeric',
                     'title_library'         => 'string|max:60',
+                    'slug_library'          => 'string|max:60|unique:library',
                     'url_library'           => 'string|max:255|unique:library',
                     'file'                  => 'required|file',
                     'description_library'   => '',
@@ -63,6 +66,7 @@ class LibraryRequest extends FormRequest
                     'id_library'            => 'numeric',
                     'fk_library_category'   => 'numeric',
                     'title_library'         => 'string|max:60',
+                    'slug_library'         => 'string|max:60|unique:library,slug_library,'.$this->library.',id_library',
                     'url_library'           => 'string|max:255|unique:library,url_library,'.$this->library.',id_library',
                     'file'                  => 'file',
                     'description_library'   => '',

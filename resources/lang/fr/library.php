@@ -14,6 +14,7 @@ return [
     'library'               => 'Documents',
     'fk_library_category'   => 'Catégorie',
     'title_library'         => 'Titre',
+    'slug_library'          => 'Titre simplifié',
     'url_library'           => 'Url',
     'file'                  => 'Fichier',
     'description_library'   => 'Déscription',

@@ -5,6 +5,8 @@ use Illuminate\Support\ServiceProvider;
 
 use Event;
 use CeddyG\ClaraLibrary\Listeners\LibrarySubscriber;
+use CeddyG\ClaraLibrary\Repositories\LibraryRepository;
+use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
 
 /**
  * Description of EntityServiceProvider
@@ -89,5 +91,13 @@ class LibraryServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/clara.library-category.php', 'clara.library-category'
         );
+        
+        $this->app->singleton('clara.library', function ($app) 
+		{
+            return new Library(
+                new LibraryRepository(),
+                new LibraryCategoryRepository()
+            );
+        });
     }
 }
