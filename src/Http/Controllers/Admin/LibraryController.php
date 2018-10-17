@@ -19,7 +19,7 @@ class LibraryController extends ContentManagerController
     {
         $this->sPath            = 'clara-library::admin.library';
         $this->sPathRedirect    = 'admin/library';
-        $this->sName            = __('library.library');
+        $this->sName            = __('clara-library::library.library');
         
         $this->oRepository  = $oRepository;
         $this->sRequest     = 'CeddyG\ClaraLibrary\Http\Requests\LibraryRequest';

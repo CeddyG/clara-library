@@ -11,11 +11,12 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'library' => 'Library',
-    'fk_library_category' => 'Library category',
-    'title_library' => 'Title library',
-    'url_library' => 'Url library',
-    'description_library' => 'Description library',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at'
+    'library'               => 'Library',
+    'fk_library_category'   => 'Library category',
+    'title_library'         => 'Title library',
+    'url_library'           => 'Url library',
+    'file'                  => 'File',
+    'description_library'   => 'Description library',
+    'created_at'            => 'Created at',
+    'updated_at'            => 'Updated at'
 ];

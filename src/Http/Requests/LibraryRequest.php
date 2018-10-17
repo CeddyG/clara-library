@@ -4,6 +4,8 @@ namespace CeddyG\ClaraLibrary\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
+
 class LibraryRequest extends FormRequest
 {
     /**
@@ -20,9 +22,12 @@ class LibraryRequest extends FormRequest
     {
         $aAttribute = parent::all($keys);
         
-        if (isset($aAttribute['url_library']))
+        if ($this->hasFile('file'))
         {
-            $aAttribute['url_library'] = str_slug($aAttribute['url_library']);
+            $oCategoryRepository = new LibraryCategoryRepository();
+            $oCategory = $oCategoryRepository->find($aAttribute['fk_library_category'], ['slug_library_category']);
+            
+            $aAttribute['url_library'] = 'public/'.config('clara.library.folder').'/'.$oCategory->slug_library_category;
         }
         
         return $aAttribute;
@@ -44,6 +49,7 @@ class LibraryRequest extends FormRequest
                     'fk_library_category'   => 'numeric',
                     'title_library'         => 'string|max:60',
                     'url_library'           => 'string|max:255|unique:library',
+                    'file'                  => 'required|file',
                     'description_library'   => '',
                     'created_at'            => 'string',
                     'updated_at'            => 'string'
@@ -58,6 +64,7 @@ class LibraryRequest extends FormRequest
                     'fk_library_category'   => 'numeric',
                     'title_library'         => 'string|max:60',
                     'url_library'           => 'string|max:255|unique:library,url_library,'.$this->library.',id_library',
+                    'file'                  => 'file',
                     'description_library'   => '',
                     'created_at'            => 'string',
                     'updated_at'            => 'string'

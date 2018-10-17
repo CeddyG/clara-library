@@ -6,7 +6,13 @@ class LibrarySubscriber
 {
     public function upload($oEvent)
     {
-        
+        if (isset($oEvent->aInputs['file']))
+        {
+            $oEvent->aInputs['file']->storeAs(
+                $oEvent->aInputs['url_library'], 
+                $oEvent->aInputs['file']->getClientOriginalName()
+            );
+        }
     }
 
     /**

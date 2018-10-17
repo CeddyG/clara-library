@@ -16,4 +16,6 @@ return [
         ]
     ],
     
+    'folder' => 'library',
+    
 ];

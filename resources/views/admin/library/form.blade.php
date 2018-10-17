@@ -26,10 +26,10 @@
                 </div>
                 <div class="box-body"> 
                     @if(isset($oItem))
-                        {!! BootForm::open()->action( route('admin.library.update', $oItem->id_library) )->put() !!}
+                        {!! BootForm::open()->action(route('admin.library.update', $oItem->id_library))->encodingType('multipart/form-data')->put() !!}
                         {!! BootForm::bind($oItem) !!}
                     @else
-                        {!! BootForm::open()->action( route('admin.library.store') )->post() !!}
+                        {!! BootForm::open()->action(route('admin.library.store'))->encodingType('multipart/form-data')->post() !!}
                     @endif
 
                         
@@ -53,7 +53,7 @@
                         @endif
 
                         {!! BootForm::text(__('clara-library::library.title_library'), 'title_library') !!}
-                        {!! BootForm::text(__('clara-library::library.url_library'), 'url_library') !!}
+                        {!! BootForm::file(__('clara-library::library.file'), 'file') !!}
                         {!! BootForm::textarea(__('clara-library::library.description_library'), 'description_library')->addClass('ckeditor') !!}
                         
 
