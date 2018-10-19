@@ -16,5 +16,5 @@ CeddyG\ClaraLibrary\LibraryServiceProvider::class,
 
 Then to publish the files.
 ```php
-php artisan vendor:publish --provider="CeddyG\ClaraNews\LibraryServiceProvider"
+php artisan vendor:publish --provider="CeddyG\ClaraLibrary\LibraryServiceProvider"
 ```
