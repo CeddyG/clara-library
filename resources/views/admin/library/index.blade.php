@@ -26,6 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>{{ __('clara-library::library.title_library') }}</th>
+                    <th>{{ __('clara-library::library.fk_library_category') }}</th>
 					<th>{{ __('clara-library::library.url_library') }}</th>
                     <th></th>
                     <th></th>
@@ -49,6 +50,7 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
+            $.fn.dataTable.ext.errMode = 'none';
             $('#tab-admin').DataTable({
                 serverSide: true,
                 ajax: {
@@ -57,7 +59,15 @@
                 columns: [
                     { 'data': 'id_library' },
                     { 'data': 'title_library' },
-					{ 'data': 'full_url' },
+                    { 
+                        'data': 'category_name',
+                        'name': 'library_category.name_library_category'
+                    },
+					{ 
+                        'data': 'url',
+                        'name': 'full_url',
+                        'searchable': false
+                    },
                     {
                         "data": "id_library",
                         "render": function ( data, type, row, meta ) {
@@ -84,7 +94,7 @@
                 aoColumnDefs: [
                     {
                         bSortable: false,
-                        aTargets: [ -1, -2 ]
+                        aTargets: [ -1, -2, -3 ]
                     }
                 ],
                 "language": {
