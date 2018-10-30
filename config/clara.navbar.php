@@ -3,10 +3,10 @@
 return [
     
     [
-        'Library',
+        'clara-library::library.library',
         [
-            'library'          => 'List',
-            'library-category' => 'Category'
+            'library'          => 'clara-library::library.list',
+            'library-category' => 'clara-library::library.fk_library_category'
         ]
     ]
     

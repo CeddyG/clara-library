@@ -12,6 +12,7 @@ return [
     |
     */
     'library'               => 'Library',
+    'list'                  => 'List',
     'fk_library_category'   => 'Library category',
     'title_library'         => 'Title library',
     'slug_library'          => 'Slug library',
