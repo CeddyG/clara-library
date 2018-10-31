@@ -13,6 +13,7 @@ return [
     */
     'library'               => 'Documents',
     'list'                  => 'Liste',
+    'folder'                => 'Dossier',
     'fk_library_category'   => 'Catégorie',
     'title_library'         => 'Titre',
     'slug_library'          => 'Titre simplifié',
