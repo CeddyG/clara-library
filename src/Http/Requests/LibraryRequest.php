@@ -29,7 +29,9 @@ class LibraryRequest extends FormRequest
             
             $sName = $this->file('file')->getClientOriginalName();
             
-            $aAttribute['url_library'] = 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.$sName;
+            $aAttribute['url_library']      = 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.$sName;
+            $aAttribute['title_library']    = array_has($aAttribute, 'title_library') ? $aAttribute['title_library'] : $sName;
+            $aAttribute['slug_library']     = array_has($aAttribute, 'slug_library') ? $aAttribute['slug_library'] : str_slug($sName);            
         }
         
         return $aAttribute;
@@ -45,7 +47,6 @@ class LibraryRequest extends FormRequest
         switch($this->method())
         {
             case 'POST':
-            {
                 return [
                     'id_library'            => 'numeric',
                     'fk_library_category'   => 'numeric',
@@ -57,23 +58,23 @@ class LibraryRequest extends FormRequest
                     'created_at'            => 'string',
                     'updated_at'            => 'string'
                 ];
-            }
             
             case 'PUT':
             case 'PATCH':
-            {
                 return [
                     'id_library'            => 'numeric',
                     'fk_library_category'   => 'numeric',
                     'title_library'         => 'string|max:60',
-                    'slug_library'         => 'string|max:60|unique:library,slug_library,'.$this->library.',id_library',
+                    'slug_library'          => 'string|max:60|unique:library,slug_library,'.$this->library.',id_library',
                     'url_library'           => 'string|max:255|unique:library,url_library,'.$this->library.',id_library',
                     'file'                  => 'file',
                     'description_library'   => '',
                     'created_at'            => 'string',
                     'updated_at'            => 'string'
                 ];
-            }
+                
+            default:
+                return [];
         }
     }
 }

@@ -11,7 +11,7 @@ return [
             'middleware' => ['web', 'access']
         ],
         'api' => [
-            'prefix'    => 'admin',
+            'prefix'    => 'api/admin',
             'middleware' => ['api', 'access']
         ]
     ],

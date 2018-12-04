@@ -52,7 +52,7 @@
             $('#tab-admin').DataTable({
                 serverSide: true,
                 ajax: {
-                    'url': '{{ route('admin.library-category.index.ajax') }}'
+                    'url': '{{ route('api.admin.library-category.index') }}'
                 },
                 columns: [
                     { 'data': 'id_library_category' },

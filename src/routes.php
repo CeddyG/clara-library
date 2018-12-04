@@ -3,13 +3,16 @@
 //Library
 Route::group(['prefix' => config('clara.library.route.web.prefix'), 'middleware' => config('clara.library.route.web.middleware')], function()
 {
-    Route::resource('library', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController', ['names' => 'admin.library']);
+    Route::get('library', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@index')->name('admin.library.index');
 });
 
 Route::group(['prefix' => config('clara.library.route.api.prefix'), 'middleware' => config('clara.library.route.api.middleware')], function()
 {
-    Route::get('library/index/ajax', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@indexAjax')->name('admin.library.index.ajax');
-	Route::get('library/select/ajax', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@selectAjax')->name('admin.library.select.ajax');
+    Route::get('library', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@indexAjax')->name('api.admin.library.index');
+    Route::get('library/{library}', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@edit')->name('api.admin.library.edit');
+    Route::post('library', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@store')->name('api.admin.library.store');
+    Route::put('library/{library}', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@update')->name('api.admin.library.update');
+    Route::delete('library/{library}', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryController@destroy')->name('api.admin.library.destroy');
 });
 
 //Category
@@ -20,6 +23,6 @@ Route::group(['prefix' => config('clara.library-category.route.web.prefix'), 'mi
 
 Route::group(['prefix' => config('clara.library-category.route.api.prefix'), 'middleware' => config('clara.library-category.route.api.middleware')], function()
 {
-    Route::get('library-category/index/ajax', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryCategoryController@indexAjax')->name('admin.library-category.index.ajax');
-	Route::get('library-category/select/ajax', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryCategoryController@selectAjax')->name('admin.library-category.select.ajax');
+    Route::get('library-category', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryCategoryController@indexAjax')->name('api.admin.library-category.index');
+    Route::get('library-category/select', 'CeddyG\ClaraLibrary\Http\Controllers\Admin\LibraryCategoryController@selectAjax')->name('api.admin.library-category.select');
 });

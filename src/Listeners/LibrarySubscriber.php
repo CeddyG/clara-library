@@ -2,6 +2,7 @@
 
 namespace CeddyG\ClaraLibrary\Listeners;
 
+use CeddyG\ClaraLibrary\Repositories\LibraryRepository;
 use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
 
 class LibrarySubscriber
@@ -17,6 +18,17 @@ class LibrarySubscriber
                 'public/'.config('clara.library.folder').'/'.$oCategory->slug_library_category, 
                 $oEvent->aInputs['file']->getClientOriginalName()
             );
+        }
+    }
+    
+    public function delete($oEvent)
+    {
+        $oRepository    = new LibraryRepository();
+        $oLibrary       = $oRepository->find($oEvent->id, ['url_library']);
+        
+        if (file_exists($oLibrary->url_library))
+        {
+            unlink($oLibrary->url_library);            
         }
     }
 

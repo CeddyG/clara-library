@@ -11,7 +11,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'library_category' => 'Library category',
+    'library_category' => 'Folder',
     'name_library_category' => 'Name library category',
     'slug_library_category' => 'Slug library category',
     'created_at' => 'Created at',
