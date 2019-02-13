@@ -150,6 +150,11 @@
                     ]
                 },
                 success: function(data) {
+                    if (data.description_library == null)
+                    {
+                        data.description_library = '';
+                    }
+                    
                     $('#id_library').val(key);
                     $('#title_library').val(data.title_library);
                     $('#slug_library').val(data.slug_library);
@@ -166,7 +171,7 @@
             
             var id = $('#id_library').val();
             var url = '{{ route('api.admin.library.update', 'dummyId') }}';
-            console.log(id);
+            
             $.ajax({
                 url: url.replace('dummyId', id),
                 type: 'PUT',    
