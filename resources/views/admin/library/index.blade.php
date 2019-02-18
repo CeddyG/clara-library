@@ -300,7 +300,8 @@
     
     <script>
         $(function () {
-            CKEDITOR.config.extraPlugins = 'colorbutton,colordialog';
+            CKEDITOR.config.allowedContent = true ;
+            CKEDITOR.config.extraPlugins = 'justify,colorbutton,colordialog';
             // Replace the <textarea id="editor1"> with a CKEditor
             // instance, using default configuration.
             CKEDITOR.replace('.ckeditor');
