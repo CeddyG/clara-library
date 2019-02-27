@@ -2,7 +2,7 @@
 
 namespace CeddyG\ClaraLibrary\Http\Controllers\Admin;
 
-use App\Http\Controllers\ContentManagerController;
+use CeddyG\Clara\Http\Controllers\ContentManagerController;
 
 use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
 
