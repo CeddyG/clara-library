@@ -2,7 +2,7 @@
 
 namespace CeddyG\ClaraLibrary\Events\Library;
 
-use App\Events\DefaultEvent\IdEvent;
+use CeddyG\Clara\Events\DefaultEvent\IdEvent;
 
 /**
  * Description of BeforeDeleteEvent

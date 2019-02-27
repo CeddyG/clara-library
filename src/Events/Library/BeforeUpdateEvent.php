@@ -2,7 +2,7 @@
 
 namespace CeddyG\ClaraLibrary\Events\Library;
 
-use App\Events\DefaultEvent\IdAndInputEvent;
+use CeddyG\Clara\Events\DefaultEvent\IdAndInputEvent;
 
 /**
  * Description of BeforeUpdateEvent
