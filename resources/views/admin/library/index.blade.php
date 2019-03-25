@@ -41,7 +41,7 @@
         <div class="modal-content">
             {!! BootForm::open()->id('form-library') !!}
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('general.close') }}">
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('clara::general.close') }}">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title"></h4>
@@ -57,8 +57,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ __('general.close') }}</button>
-                <button type="submit" class="btn btn-primary" id="submit-modal">{{ __('general.save') }}</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ __('clara::general.close') }}</button>
+                <button type="submit" class="btn btn-primary" id="submit-modal">{{ __('clara::general.save') }}</button>
             </div>
             {!! BootForm::close() !!}
         </div>

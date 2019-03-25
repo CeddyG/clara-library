@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('general.close') }}">
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('clara::general.close') }}">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title">{{ __('clara-library::library.library') }}</h4>
@@ -20,7 +20,7 @@
                 <input name="file" type="file" class="file fileinput" data-preview-file-type="text" multiple>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ __('general.close') }}</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ __('clara::general.close') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
