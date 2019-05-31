@@ -31,7 +31,9 @@ class LibraryRequest extends FormRequest
             
             $aAttribute['url_library']      = 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.$sName;
             $aAttribute['title_library']    = array_has($aAttribute, 'title_library') ? $aAttribute['title_library'] : $sName;
-            $aAttribute['slug_library']     = array_has($aAttribute, 'slug_library') ? $aAttribute['slug_library'] : str_slug($sName);            
+            $aAttribute['slug_library']     = array_has($aAttribute, 'slug_library') 
+                ? $aAttribute['slug_library'] 
+                : 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.str_slug($sName);            
         }
         
         return $aAttribute;
