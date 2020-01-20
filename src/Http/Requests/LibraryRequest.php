@@ -4,6 +4,8 @@ namespace CeddyG\ClaraLibrary\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Str;
+use Arr;
 use CeddyG\ClaraLibrary\Repositories\LibraryCategoryRepository;
 
 class LibraryRequest extends FormRequest
@@ -30,10 +32,10 @@ class LibraryRequest extends FormRequest
             $sName = $this->file('file')->getClientOriginalName();
             
             $aAttribute['url_library']      = 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.$sName;
-            $aAttribute['title_library']    = array_has($aAttribute, 'title_library') ? $aAttribute['title_library'] : $sName;
-            $aAttribute['slug_library']     = array_has($aAttribute, 'slug_library') 
+            $aAttribute['title_library']    = Arr::has($aAttribute, 'title_library') ? $aAttribute['title_library'] : $sName;
+            $aAttribute['slug_library']     = Arr::has($aAttribute, 'slug_library') 
                 ? $aAttribute['slug_library'] 
-                : 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.str_slug($sName);            
+                : 'storage/'.config('clara.library.folder').'/'.$oCategory->slug_library_category.'/'.Str::slug($sName);            
         }
         
         return $aAttribute;

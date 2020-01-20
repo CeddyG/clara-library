@@ -4,6 +4,8 @@ namespace CeddyG\ClaraLibrary\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Str;
+
 class LibraryCategoryRequest extends FormRequest
 {
     /**
@@ -22,7 +24,7 @@ class LibraryCategoryRequest extends FormRequest
         
         if (isset($aAttribute['slug_library_category']))
         {
-            $aAttribute['slug_library_category'] = str_slug($aAttribute['slug_library_category']);
+            $aAttribute['slug_library_category'] = Str::slug($aAttribute['slug_library_category']);
         }
         
         return $aAttribute;
