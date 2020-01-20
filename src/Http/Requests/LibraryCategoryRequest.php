@@ -43,8 +43,8 @@ class LibraryCategoryRequest extends FormRequest
             {
                 return [
                     'id_library_category'   => 'numeric',
-                    'name_library_category' => 'string|max:45',
-                    'slug_library_category' => 'string|max:45|unique:library_category',
+                    'name_library_category' => 'string|max:255',
+                    'slug_library_category' => 'string|max:255|unique:library_category',
                     'created_at'            => 'string',
                     'updated_at'            => 'string'
                 ];
@@ -55,8 +55,8 @@ class LibraryCategoryRequest extends FormRequest
             {
                 return [
                     'id_library_category'   => 'numeric',
-                    'name_library_category' => 'string|max:45',
-                    'slug_library_category' => 'string|max:45|unique:library_category,slug_library_category,'.$this->library_category.',id_library_category',
+                    'name_library_category' => 'string|max:255',
+                    'slug_library_category' => 'string|max:255|unique:library_category,slug_library_category,'.$this->library_category.',id_library_category',
                     'created_at'            => 'string',
                     'updated_at'            => 'string'
                 ];
