@@ -26,7 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>{{ __('clara-library::library-category.name_library_category') }}</th>
-					<th>{{ __('clara-library::library-category.slug_library_category') }}</th>
+                    <th>{{ __('clara-library::library-category.slug_library_category') }}</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -52,12 +52,15 @@
             $('#tab-admin').DataTable({
                 serverSide: true,
                 ajax: {
-                    'url': '{{ route('api.admin.library-category.index') }}'
+                    'url': '{{ route('api.admin.library-category.index') }}',
+                    headers: {
+                        "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                    }
                 },
                 columns: [
                     { 'data': 'id_library_category' },
                     { 'data': 'name_library_category' },
-					{ 'data': 'slug_library_category' },
+                    { 'data': 'slug_library_category' },
                     {
                         "data": "id_library_category",
                         "render": function ( data, type, row, meta ) {

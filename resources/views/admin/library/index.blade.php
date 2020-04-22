@@ -87,6 +87,9 @@
                     url: function () {
                         return $(this).attr('data-url-select');
                     },
+                    headers: {
+                        "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                    },
                     dataType: 'json',
                     delay: 10,
                     data: function (params) {
@@ -139,7 +142,10 @@
             var url = '{{ route('api.admin.library.edit', 'dummyId') }}';
             
             $.ajax({
-                url: url.replace('dummyId', key),   
+                url: url.replace('dummyId', key),
+                headers: {
+                    "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                },
                 async: false,
                 data: {
                     column: [
@@ -174,6 +180,9 @@
             
             $.ajax({
                 url: url.replace('dummyId', id),
+                headers: {
+                    "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                },
                 type: 'PUT',    
                 async: false,
                 data: {
@@ -202,6 +211,9 @@
             var iFkCategory = $('#fk_library_category').val();
             $.ajax({
                 url: '{{ route('api.admin.library.index') }}',
+                headers: {
+                    "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                },
                 data: {
                     fk_library_category: iFkCategory
                 },
@@ -232,8 +244,16 @@
                         uploadExtraData: {
                             fk_library_category: iFkCategory
                         },
+                        ajaxSettings: {
+                            headers: {
+                                "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                            }
+                        },
                         ajaxDeleteSettings: {
-                            method: 'DELETE'
+                            method: 'DELETE',
+                            headers: {
+                                "Authorization": "Bearer {{ Sentinel::getUser()->api_token }}"
+                            }
                         },
                         showClose: false,
                         overwriteInitial: false,
